@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>A Novel RNN-derived MVDR method for multi-channel target speech separation</title>
+</head>
+
+<body>
+<h2 id="A-Novel-RNN-derived-MVDR-method-for-multi-channel-target-speech-separation">A Novel RNN-derived MVDR method for multi-channel target speech separation<a aria-label="Anchor" href="https://yongxuustc.github.io/mtmvdr/#neural-spatio-temporal-filtering-for-target-speech-separation" data-anchorjs-icon=""></a></h2>
+<p>submitted to ICASSP2021,   <strong>Zhuohuang Zhang</strong> (zhuozhan@iu.edu), Yong Xu
+<p> </p>
+<br><strong>Indiana University, Bloomington, IN</strong> 
+<br>Tencent AI Lab, Bellevue, WA 
+</p>
+    
+<p><img src="system_overview.png" width="1039" height="355" /></p>
+<p> Purely neural network based speech separation systems often cause nonlinear distortion on the separated speech, which is harmful for many automatic speech recognition (ASR) systems [1]. 
+The minimum variance distortionless response (MVDR) beamformer can be used to minimize the distortion, yet conventional MVDR approaches still result in high level of residual noise [2,3]. In this study, we propose a novel recurrent neural network (RNN) derived MVDR (denoted as RD-MVDR) method, where the matrix inverse and eigenvalue decomposition are replaced by two RNNs. Our model can greatly remove the residual noise while ensuring the distortionless of the target speech. Our system outperforms prior arts in many objective evaluation metrics as well as the ASR accuracy. </p>
+
+<p> A Mandarin audio-visual dataset [4,5] is adopted for this study.</p>  
+    
+<p><strong> Systems evaluated: </strong></p>
+<p>1. NN with cRM: A Conv-TasNet variant [4,5] with complex ratio mask (denoted as cRM)</p>   
+<p>2. NN with 3X3 cRF: A Conv-TasNet variant [4,5] with complex ratio filtering (denoted as cRF, please refer to the paper for details)</p>  
+<p>3. MVDR with cRM: An MVDR system with complex ratio mask [3]</p>  
+<p>4. Multi-tap MVDR with cRM: A multi-tap MVDR system with complex ratio mask [3]</p>  
+<p>5. Proposed RD-MVDR with 3X3 cRF: Our proposed RD-MVDR system with 3X3 cRF </p> 
+<p>&nbsp;</p>
+    
+<p><strong>Demo 1: Simulated 1-speaker noisy mixture for target speech separation</strong> [Sorry that the demos are all recorded in Mandarin Chinese.]</p>
+<p>
+<img src="1spk/mix.png" width="265" height="125" /> 
+<img src="1spk/ref.png" width="265" height="125" /> 
+<img src="1spk/NNbaseline.png" width="258" height="125" /> 
+<img src="1spk/NN3X3.png" width="265" height="125" /></p>
+<table width="1068" border="1">
+  <tr>
+    <td width="255">Mix (1 speaker + non-stationary additive noise) <a href="1spk/mix.wav">wav</a></td>
+    <td width="255">Reverberant clean (reference) <a href="1spk/ref.wav">wav</a></td>
+    <td width="255">NN with cRM <a href="1spk/NNbaseline.wav">wav</a></td>
+    <td width="255">NN with 3X3 cRF <a href="1spk/NN3x3.wav">wav</a></td>
+  </tr>
+</table>
+<p><img src="1spk/MVDR.png" width="255" height="125" /> <img src="1spk/2tapMVDR.png" width="255" height="125" /> <img src="1spk/RD-MVDR.png" width="255" height="125" /></p>
+<table width="775" border="1">
+  <tr>
+    <td width="255"><p>MVDR with cRM <a href="1spk/MVDR.wav">wav</a></p></td>
+    <td width="275"><p>Multi-tap MVDR with cRM [2-tap, i.e., (t-1,t)] <a href="1spk/2tapMVDR.wav">wav</a></p></td>
+      <td width="255"><p><strong>Proposed RD-MVDR with 3X3 cRF </strong><a href="1spk/RD-MVDR.wav">wav</a></p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+    
+
+<p><strong>Demo2: Simulated 2-speaker noisy mixture for target speech separation (waveforms aligned with the spectrograms shown in Fig. 2 of the paper)</strong> <strong>separation</strong></p>
+<p>
+<img src="2spk/mix.png" width="265" height="125" /> 
+<img src="2spk/ref.png" width="265" height="125" /> 
+<img src="2spk/NNbaseline.png" width="258" height="125" /> 
+<img src="2spk/NN3X3.png" width="265" height="125" /></p>
+<table width="1068" border="1">
+  <tr>
+    <td width="255">Mix (1 speaker + non-stationary additive noise) <a href="2spk/mix.wav">wav</a></td>
+    <td width="255">Reverberant clean (reference) <a href="2spk/ref.wav">wav</a></td>
+    <td width="255">Purely NN-based cRM (removes the residual noise but results in large amount of distortion) <a href="2spk/NNbaseline.wav">wav</a></td>
+    <td width="255">Purely NN-based 3X3 cRF (removes the residual noise but results in large amount of distortion) <a href="2spk/NN3x3.wav">wav</a></td>
+  </tr>
+</table>
+<p><img src="2spk/MVDR.png" width="255" height="125" /> <img src="2spk/2tapMVDR.png" width="255" height="125" /> <img src="2spk/RD-MVDR.png" width="255" height="125" /></p>
+<table width="775" border="1">
+  <tr>
+    <td width="255"><p>Baseline MVDR with cRM (ensures the distortionless of target speech, but results in high-level of residual noise)  <a href="2spk/MVDR.wav">wav</a></p></td>
+    <td width="275"><p>Multi-tap MVDR (2-tap) with cRM (ensures the distortionless of target speech, but results in high-level of residual noise) <a href="2spk/2tapMVDR.wav">wav</a></p></td>
+    <td width="255"><p><strong>Proposed RD-MVDR with 3X3 cRF </strong>(removes the residual noise, also ensures the distortionless of target signal)<a href="2spk/RD-MVDR.wav">wav</a></p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+
+    
+    
+<p><strong>Demo 3: Simulated 3-speaker noisy mixture for target speech separation</strong></p>
+<p>
+<img src="3spk/mix.png" width="265" height="125" /> 
+<img src="3spk/ref.png" width="265" height="125" /> 
+<img src="3spk/NNbaseline.png" width="258" height="125" /> 
+<img src="3spk/NN3X3.png" width="265" height="125" /></p>
+<table width="1068" border="1">
+  <tr>
+    <td width="255">Mix (1 speaker + non-stationary additive noise) <a href="3spk/mix.wav">wav</a></td>
+    <td width="255">Reverberant clean (reference) <a href="3spk/ref.wav">wav</a></td>
+    <td width="255">Purely NN-based cRM (removes the residual noise but results in large amount of distortion) <a href="3spk/NNbaseline.wav">wav</a></td>
+    <td width="255">Purely NN-based 3X3 cRF (removes the residual noise but results in large amount of distortion) <a href="3spk/NN3x3.wav">wav</a></td>
+  </tr>
+</table>
+<p><img src="3spk/MVDR.png" width="255" height="125" /> <img src="3spk/2tapMVDR.png" width="255" height="125" /> <img src="3spk/RD-MVDR.png" width="255" height="125" /></p>
+<table width="775" border="1">
+  <tr>
+    <td width="255"><p>Baseline MVDR with cRM (ensures the distortionless of target speech, but results in high-level of residual noise) <a href="3spk/MVDR.wav">wav</a></p></td>
+    <td width="275"><p>Multi-tap MVDR (2-tap) with cRM (ensures the distortionless of target speech, but results in high-level of residual noise)<a href="3spk/2tapMVDR.wav">wav</a></p></td>
+    <td width="255"><p><strong>Proposed RD-MVDR with 3X3 cRF </strong>(removes the residual noise, also ensures the distortionless of target signal)<a href="3spk/RD-MVDR.wav">wav</a></p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+    
+    
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Reference: </strong></p>
+<p>[1] Du, Jun, et al. "Robust speech recognition with speech enhanced deep neural networks." Interspeech2014 </p>
+<p>[2] Xiao, Xiong, et al. "On time-frequency mask estimation for MVDR beamforming with application in robust speech recognition." ICASSP2017 </p>
+<p>[3] Xu, Yong, et al. "Neural Spatio-Temporal Beamformer for Target Speech Separation." accepted to Interspeech2020.</p>  
+<p>[4] Tan, Ke, et al. "Audio-visual speech separation and dereverberation with a two-stage multimodal network." IEEE Journal of Selected Topics in Signal Processing (2020).</p>
+<p>[5] Luo, Yi, and Nima Mesgarani. "Conv-tasnet: Surpassing ideal time–frequency magnitude masking for speech separation." IEEE/ACM transactions on audio, speech, and language processing 27.8 (2019): 1256-1266.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
