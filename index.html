@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>A Novel RNN-derived MVDR method for multi-channel target speech separation</title>
+<title>ADL-MVDR: All deep learning MVDR beamformer for targt speech separation</title>
 </head>
 
 <body>
-<h2 id="A-Novel-RNN-derived-MVDR-Method-for-Multi-channel-Target-Speech-Separation">A Novel RNN-derived MVDR Method for Multi-channel Target Speech Separation</h2>
+<h2 id="ADL-MVDR-All-deep-learning-MVDR-beamformer-for-targt-speech-separation">ADL-MVDR: All deep learning MVDR beamformer for targt speech separation</h2>
 <p>submitted to ICASSP2021,   <strong>Zhuohuang Zhang</strong> (zhuozhan@iu.edu), Yong Xu, Meng Yu, Shi-xiong Zhang, Lianwu Chen, Dong Yu
 <p> </p>
 <br><strong>Indiana University, Bloomington, IN</strong> 
@@ -16,7 +16,7 @@
     
 <p><img src="system_overview.png" width="1000" height="345" /></p>
 <p> Purely neural network based speech separation systems often cause nonlinear distortion on the separated speech, which is harmful for many automatic speech recognition (ASR) systems [1]. 
-The minimum variance distortionless response (MVDR) beamformer can be used to minimize the distortion, yet conventional MVDR approaches still result in high level of residual noise [2,3]. In this study, we propose a novel recurrent neural network (RNN) derived MVDR (denoted as RD-MVDR) method, where the matrix inverse and eigenvalue decomposition are replaced by two RNNs. Our model can greatly remove the residual noise while ensuring the distortionless of the target speech. Our system outperforms prior arts in many objective evaluation metrics as well as the ASR accuracy. </p>
+The minimum variance distortionless response (MVDR) beamformer can be used to minimize the distortion, yet conventional MVDR approaches still result in high level of residual noise [2,3]. In this study, we propose a novel all deep learning MVDR (denoted as ADL-MVDR) framework, where the matrix inverse and eigenvalue decomposition are replaced by two RNNs. Our model can greatly remove the residual noise while ensuring the distortionless of the target speech. Our system outperforms prior arts in many objective evaluation metrics as well as the ASR accuracy. </p>
 
 <p> A Mandarin audio-visual dataset [4,5] is adopted for this study.</p>  
     
@@ -25,13 +25,13 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
 <p>2. NN with cRF: A Conv-TasNet variant [4,5] with 3X3 size complex ratio filtering (denoted as cRF, please refer to the paper for details)</p>  
 <p>3. MVDR with cRM: An MVDR system with complex ratio mask [3]</p>  
 <p>4. Multi-tap MVDR with cRM: A multi-tap MVDR system with complex ratio mask [3]</p>  
-<p>5. <strong>Proposed RD-MVDR with cRF</strong>: Our proposed RD-MVDR system with 3X3 cRF </p> 
+<p>5. <strong>Proposed ADL-MVDR with cRF</strong>: Our proposed ADL-MVDR system with 3X3 cRF </p> 
 <p>&nbsp;</p>
 
 <p><strong>Wearing a headphone is strongly recommended.</strong></p>
 <p>Purely NN systems can greatly remove the residual noise, but cause nonlinear distortion (e.g., blackhole on spectrogram).</p>
 <p>Conventional MVDR systems can ensure the distortionless of the target speech, while result in high level of residual noise.</p>
-<p>Our proposed <strong>RD-MVDR systems</strong> can ensure the distortionless of the target speech while also eliminating the residual noise.</p>
+<p>Our proposed <strong>ADL-MVDR systems</strong> can ensure the distortionless of the target speech while also eliminating the residual noise.</p>
     
 <p><strong>Demo 1: Simulated 1-speaker noisy mixture for target speech separation</strong> [Sorry that all the demos are recorded in Mandarin Chinese.]</p>
 <p>
@@ -94,7 +94,7 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
             <code>audio</code> element.
     </audio>    
     </td>
-      <td width="255"><strong>Proposed RD-MVDR with cRF </strong>
+      <td width="255"><strong>Proposed ADL-MVDR with cRF </strong>
       <audio
         controls
         src="1spk/RD-MVDR.wav">
@@ -169,7 +169,7 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
             <code>audio</code> element.
     </audio>    
     </td>
-      <td width="255"><strong>Proposed RD-MVDR with cRF </strong>
+      <td width="255"><strong>Proposed ADL-MVDR with cRF </strong>
       <audio
         controls
         src="2spk/RD-MVDR.wav">
@@ -245,7 +245,7 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
             <code>audio</code> element.
     </audio>    
     </td>
-      <td width="255"><strong>Proposed RD-MVDR with cRF </strong>
+      <td width="255"><strong>Proposed ADL-MVDR with cRF </strong>
       <audio
         controls
         src="3spk/RD-MVDR.wav">
