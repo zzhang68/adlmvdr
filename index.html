@@ -374,9 +374,10 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
 
 
 <p><strong>Demo 4: Real-world far-field recording and testing:</strong></p>
-<p><img src="DOA_estimation.png" width="1000" height="260" /></p>
+<p><img src="camera_and_mic.png" width="600" height="180" /></p>
 <p>15-element non-uniform linear microphone array and colocated 180 degree wide-angle camera for our real-world video and audio recording</p>
-<p>For the real-world videos, as the 180-degree wide-angle camera is colocated with the linear mic array, the rough DOA of the target speaker could be estimated according to the location of the target speaker in the whole camera view [4]. Face detection is conducted to track the target speaker's DOA. </p>
+<p><img src="DOA_estimation.png" width="1000" height="260" /></p>
+<p>For the real-world videos, the 180-degree wide-angle camera is calibrated and synchronized with the 15-channel mic array. We estimate the rough DOA of the target speaker according to the location of the target speaker in the whole camera view [4]. Face detection is applied to track the target speaker's DOA. </p>
 <p>
   <video src="video/real_world_demo1_mixture.mp4" width="574" height="273" controls preload></video>
   <video src="video/real_world_demo1_rdmvdr_enh.mp4" width="574" height="273" controls preload></video>
@@ -384,7 +385,7 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
 <table width="1157" border="1">
   <tr>
     <td width="569">Real-world scenario: far-field <strong>two-speaker mixture</strong> recorded by the camera and microphone array</td>
-    <td width="572">Real-world scenario: <strong>separated male speaker's speech</strong> by the proposed ADL-MVDR-v1 method (face detected in the red rectangle)</td>
+    <td width="572">Real-world scenario: <strong>separated male voice</strong> by the proposed ADL-MVDR-v1 method (face detected in the red rectangle, used for DOA estimation)</td>
   </tr>
 </table>
   <p><strong>Demo 5: Real-world far-field recording and testing 2:</strong></p>
@@ -395,7 +396,7 @@ The minimum variance distortionless response (MVDR) beamformer can be used to mi
 <table width="1157" border="1">
   <tr>
     <td width="569">Real-world scenario: far-field <strong>two-speaker mixture</strong> recorded by the camera and microphone array</td>
-    <td width="572">Real-world scenario: <strong>separated female speaker's speech</strong> by the proposed ADL-MVDR-v1 method (face detected in the red rectangle).</td>
+    <td width="572">Real-world scenario: <strong>separated female voice</strong> by the proposed ADL-MVDR-v1 method (face detected in the red rectangle, used for DOA estimation).</td>
   </tr>
 </table>
     
