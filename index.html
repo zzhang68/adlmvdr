@@ -18,7 +18,7 @@
 <p> Purely neural network based speech separation systems often cause nonlinear distortion on the separated speech, which is harmful for many automatic speech recognition (ASR) systems [1]. 
 The minimum variance distortionless response (MVDR) beamformer can be used to minimize the distortion, yet conventional MVDR approaches still result in high level of residual noise [2,3]. In this study, we propose a novel all deep learning MVDR (denoted as ADL-MVDR) framework, where the matrix inverse and eigenvalue decomposition are replaced by two RNNs. Our model can greatly remove the residual noise while ensuring the distortionless of the target speech. Our system outperforms prior arts in many objective evaluation metrics as well as the ASR accuracy. </p>
 
-<p> A Mandarin audio-visual dataset [4,5] is adopted for this study, the word error rate (WER) is measure with a Tencent commercial mandarin speech recognition API [6].</p>  
+<p> A Mandarin audio-visual dataset [4,5] is adopted for this study, the word error rate (WER) is measured with a Tencent commercial mandarin speech recognition API [6].</p>  
     
 <p><strong> Systems evaluated: </strong></p>
 <p>1. NN with cRM: A Conv-TasNet variant [4,5] with complex ratio mask (denoted as cRM)</p>   
